@@ -3,6 +3,16 @@
 import gradio as gr
 from taibun import Converter, to_simplified, to_traditional
 
+# List of example texts
+# source: https://github.com/andreihar/taibun
+examples = [
+    ("先生講，學生恬恬聽。", "Tailo", "south", "mark", "none"),
+    ("我欲用箸食魚", "POJ", "north", "number", "auto"),
+    ("生日快樂", "Zhuyin", "south", "strip", "exc_last"),
+    ("太空朋友，恁好！恁食飽未？", "Pingyim", "north", "mark", "incl_last"),
+    ("這是台灣囡仔", "Tongiong", "south", "number", "none"),
+]
+
 
 def convert_text(text, system="Tailo", dialect="south", format="mark", sandhi="none"):
     # Create a converter object with selected options
@@ -44,6 +54,7 @@ interface = gr.Interface(
     ],
     title="Hokkien Transliteration Converter",
     description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package. Made by <a href='https://teddysc.me'>Teddy</a>.",
+    examples=examples,
 )
 
 # Launch the app
