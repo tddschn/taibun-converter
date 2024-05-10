@@ -1,12 +1,20 @@
+#!/usr/bin/env python3
+
 import gradio as gr
-from taibun import Converter  # Assuming the taibun package provides a Converter class
+from taibun import Converter, to_simplified, to_traditional
 
 
 def convert_text(text, system="Tailo", dialect="south", format="mark", sandhi="none"):
     # Create a converter object with selected options
     converter = Converter(system=system, dialect=dialect, format=format, sandhi=sandhi)
-    # Return the converted text
-    return converter.get(text)
+    # Convert the text using the specified transliteration system
+    converted_text = converter.get(text)
+    # Convert to simplified Chinese characters
+    simplified_text = to_simplified(converted_text)
+    # Convert to traditional Chinese characters
+    traditional_text = to_traditional(converted_text)
+    # Return the tuple containing all conversion results
+    return converted_text, simplified_text, traditional_text
 
 
 # Define the interface
@@ -29,7 +37,11 @@ interface = gr.Interface(
             value="none",
         ),
     ],
-    outputs=[gr.Textbox(label="Converted Text")],
+    outputs=[
+        gr.Textbox(label="Converted Text"),
+        gr.Textbox(label="Simplified Chinese"),
+        gr.Textbox(label="Traditional Chinese"),
+    ],
     title="Hokkien Transliteration Converter",
     description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package. Made by <a href='https://teddysc.me'>Teddy</a>.",
 )
