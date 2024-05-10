@@ -31,7 +31,7 @@ interface = gr.Interface(
     ],
     outputs=[gr.Textbox(label="Converted Text")],
     title="Hokkien Transliteration Converter",
-    description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package.",
+    description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package. Made by <a href='https://teddysc.me'>Teddy</a>.",
 )
 
 # Launch the app
