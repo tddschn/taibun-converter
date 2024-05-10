@@ -10,9 +10,9 @@ def convert_text(text, system="Tailo", dialect="south", format="mark", sandhi="n
     # Convert the text using the specified transliteration system
     converted_text = converter.get(text)
     # Convert to simplified Chinese characters
-    simplified_text = to_simplified(converted_text)
+    simplified_text = to_simplified(text)
     # Convert to traditional Chinese characters
-    traditional_text = to_traditional(converted_text)
+    traditional_text = to_traditional(text)
     # Return the tuple containing all conversion results
     return converted_text, simplified_text, traditional_text
 
