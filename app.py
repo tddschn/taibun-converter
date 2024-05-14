@@ -53,7 +53,7 @@ interface = gr.Interface(
         gr.Textbox(label="Traditional Chinese"),
     ],
     title="Hokkien Transliteration Converter",
-    description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package. Made by <a href='https://teddysc.me/blog/introducing/hokkien-converter'>Teddy</a>.",
+    description="Convert Hokkien text between various transliteration systems using the <a href='https://github.com/andreihar/taibun' target='_blank'>taibun</a> package. Made by <a href='https://teddysc.me/blog/introducing/hokkien-converter'>Teddy</a>.<br/><img src='https://github.com/cli/cli/assets/45612704/84eaa125-43c8-4b52-a3e6-329c7d59c8ff' />",
     examples=[list(x) for x in examples],
 )
 
